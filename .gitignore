@@ -1,5 +1,23 @@
-node_modules/
+# Arquivos Python
+*.pyc
+__pycache__/
+
+# Banco de dados local
+db.sqlite3
+
+# Configurações de ambiente
 .env
-dist/
-build/
+
+# Arquivos de log
+*.log
+
+# Diretórios de arquivos estáticos e de mídia
+staticfiles/
+media/
+
+# Padrões de backup e sistema operacional
+*.bak
+*.swp
 .DS_Store
+Thumbs.db
+
