@@ -63,8 +63,6 @@ DATABASES = {
     }
 }
 
-MEDIA_URL = '/media/'
-
 # Password validation settings
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -98,6 +96,10 @@ STATICFILES_DIRS = [
 
 # Diretório onde os arquivos estáticos serão coletados quando rodar o comando collectstatic
 STATIC_ROOT = BASE_DIR / "staticfiles"  # Adicione esta linha para corrigir o erro
+
+# Media files settings
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'  # Diretório para armazenar arquivos de mídia (ex.: imagens enviadas)
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

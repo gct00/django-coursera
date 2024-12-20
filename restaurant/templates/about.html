@@ -1,10 +1,13 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
 <section>
   <article>
     <h1>About Us</h1>
-    <!--Begin row-->
+    <!-- Begin row -->
     <div class="row">
-      <!--Begin col-->
+      <!-- Begin col -->
       <div class="column">
         <p>
           Based in Chicago, Illinois, Little Lemon is a family owned
@@ -35,26 +38,23 @@
         <p>
           Adrian does all the marketing for the restaurant and led the effort to
           expand the menu beyond classic Italian to incorporate additional
-          cuisines from the mediterranean region.
+          cuisines from the Mediterranean region.
         </p>
       </div>
-      <!--End col-->
+      <!-- End col -->
 
-      <!--Begin col-->
+      <!-- Begin col -->
       <div class="column">
         <figure class="figure">
-          <img
-            src="{% static 'img/mario-and-adrian.jpg' %}"
-            alt="Mario and Adrian"
-          />
+          <img src="{% static 'img/mario-and-adrian.jpg' %}" alt="Mario and Adrian" />
           <figcaption class="figure-caption">
             Little Lemon owners Mario and Adrian.
           </figcaption>
         </figure>
       </div>
-      <!--End col-->
+      <!-- End col -->
     </div>
-    <!--End row-->
+    <!-- End row -->
   </article>
 </section>
 {% endblock %}

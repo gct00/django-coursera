@@ -1,37 +1,31 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from .forms import BookingForm
+from django.shortcuts import render, get_object_or_404
 from .models import Menu
 
-# Create your views here.
-def home(request):
-    return render(request, 'index.html')
-
-def about(request):
-    return render(request, 'about.html')
-
-def book(request):
-    form = BookingForm()
-    if request.method == 'POST':
-        form = BookingForm(request.POST)
-        if form.is_valid():
-            form.save()
-    context = {'form': form}
-    return render(request, 'book.html', context)
-
-# Add your code here to create new views
+# Function to display the menu
 def menu(request):
     menu_data = Menu.objects.all()
-    main_data = {"menu": menu_data}
-    return render(request, 'menu.html', main_data)
-
-def display_menu_items(request, pk=None):  
-    if pk:
-        try:
-            menu_item = Menu.objects.get(pk=pk)  
-        except Menu.DoesNotExist:
-            menu_item = None  
+    
+    # Check if the menu is empty
+    if not menu_data:
+        message = "No menu items available."  # Message for when there are no items
     else:
-        menu_item = None
+        message = None  # If there are items, no message will be displayed
+    
+    # Passing 'menu' and 'message' to the template
+    return render(request, 'menu.html', {'menu': menu_data, 'message': message})
 
+# Function to display a specific menu item
+def display_menu_item(request, pk=None):
+    # Using get_object_or_404 to avoid exceptions if the item doesn't exist
+    menu_item = get_object_or_404(Menu, pk=pk)
+    
+    # Passing the menu item to the template
     return render(request, 'menu_item.html', {'menu_item': menu_item})
+
+# Function for the about page
+def about(request):
+    return render(request, 'about.html')  # Ensure you have an 'about.html' template
+
+# Function for the booking page
+def book(request):
+    return render(request, 'book.html')  # Ensure you have a 'book.html' template

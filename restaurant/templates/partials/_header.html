@@ -1,12 +1,14 @@
 {% load static %}
 <header>
-  <img src="{% static 'img/logo.png' %}" />
+  <div class="header-logo">
+    <img src="{% static 'img/logo.png' %}" alt="Little Lemon Logo" />
+  </div>
+  <nav class="header-nav">
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'menu' %}">Menu</a></li>
+      <li><a href="{% url 'book' %}">Book</a></li>
+    </ul>
+  </nav>
 </header>
-<nav>
-  <ul>
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'about' %}">About</a></li>
-    <li><a href="{% url 'menu' %}">Menu</a></li>
-    <li><a href="{% url 'book' %}">Book</a></li>
-  </ul>
-</nav>

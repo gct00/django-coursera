@@ -2,18 +2,21 @@
 {% load static %}
 {% block content %}
 <h1>Menu</h1>
-<!--Begin col-->
+<!-- Begin col -->
 <div class="column">
-    <!-- Create for loop -->
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
     {% for item in menu %}
     <p>
         <a href="{% url 'menu_item' pk=item.pk %}">
             {{ item.name }}
         </a>
-        <span class="menu-price">${{ item.price }}.00</span>
+        <span class="menu-price">
+            ${{ item.price }}.00
+        </span>
     </p>
     {% endfor %}
-    <!-- End for loop -->
 </div>
-<!--End col-->
+<!-- End col -->
 {% endblock %}

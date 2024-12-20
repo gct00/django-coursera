@@ -6,17 +6,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Little Lemon</title>
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  <!-- Link para o arquivo de estilos -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- Corrigido para 'style.css' -->
+
+  <!-- Adicionando favicon -->
+  <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
 </head>
 
 <body>
-  <!-- Main content -->
+  <!-- Header com navegação -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'book' %}">Book</a></li>
+        <li><a href="{% url 'menu' %}">Menu</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content (onde o conteúdo das páginas específicas será inserido) -->
   {% block content %}
   {% endblock %}
 
   <!-- Footer content -->
   {% include 'partials/_footer.html' %}
+
 </body>
 
 </html>
-
